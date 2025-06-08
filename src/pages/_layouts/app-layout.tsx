@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import { BsInstagram } from "react-icons/bs";
-import { FaFacebookF } from "react-icons/fa";
-import { ImYoutube } from "react-icons/im";
 import { Outlet } from "react-router-dom";
 
 export function AppLayout() {

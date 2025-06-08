@@ -1,21 +1,18 @@
-import { isAxiosError } from 'axios'
-import { ComponentType, useEffect } from 'react'
-import { api } from '@/lib/axios'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { ComponentType } from 'react'
 
 
 interface PrivateRouteProps {
   protectedComponent: ComponentType
 }
 
-function isAuthenticated() {
-  return !!localStorage.getItem('token')
-}
+// function isAuthenticated() {
+//   return !!localStorage.getItem('token')
+// }
 
 export function PrivateRoute({
   protectedComponent: ProtectedComponent,
 }: PrivateRouteProps) {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // useEffect(() => {
   //   const interceptorId = api.interceptors.response.use(

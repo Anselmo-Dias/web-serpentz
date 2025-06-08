@@ -23,8 +23,10 @@ export function AppLayout() {
   return (
     <div className="flex flex-col">
       <header
-      style={{backgroundColor: scrollPosition > 0 ? "black" : "transparent"}}
-        className='fixed flex w-full items-center justify-between gap-6 transition-all duration-500 ease-in-out px-8 py-4 max-xs:flex-col max-xs:px-1 z-20'
+        style={{
+          backgroundColor: scrollPosition > 0 ? "black" : "transparent",
+        }}
+        className="fixed z-20 flex w-full items-center justify-between gap-6 px-8 py-4 transition-all duration-500 ease-in-out max-xs:flex-col max-xs:px-1"
       >
         <h1 className="text-xl font-black text-white">Serpentz</h1>
 
@@ -32,7 +34,7 @@ export function AppLayout() {
           <li className="text-center">
             <a
               className="link-hover-border max-xs:text-xxl text-center"
-              href=""
+              href="#shop"
             >
               Loja
             </a>
@@ -40,17 +42,17 @@ export function AppLayout() {
           <li className="text-center">
             <a
               className="link-hover-border max-xs:text-xxl text-center"
-              href=""
+              href="#recruitment"
             >
-              Sobre nós
+              Junte-se à equipe
             </a>
           </li>
           <li className="text-center">
             <a
               className="link-hover-border max-xs:text-xxl text-center"
-              href=""
+              href="#contact"
             >
-              junte-se à equipe
+              Contato
             </a>
           </li>
         </ul>

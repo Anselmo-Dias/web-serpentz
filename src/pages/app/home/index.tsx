@@ -40,7 +40,7 @@ export function HomePage() {
             "Dominando o jogo com estilo e veneno."
           </p>
           <a
-            href="#recrutamento"
+            href="#recruitment"
             className="inline-block rounded-full bg-orange-500 px-8 py-4 font-bold text-black transition-all hover:bg-orange-600"
           >
             Junte-se ao time

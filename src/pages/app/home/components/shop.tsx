@@ -3,13 +3,13 @@ import { motion } from 'framer-motion'
 export function Shop() {
   return (
     <section
-      id="loja"
+      id="shop"
       className="bg-gradient-to-b from-gray-900 to-black py-20 px-6 text-white"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Imagem promocional da loja */}
         <motion.img
-          src="https://yampi.com.br/assets/images/illustrations/store-front.svg" // substitua pela sua imagem de destaque
+          src="https://yampi.com.br/assets/images/illustrations/store-front.svg"
           alt="Loja Serpentz"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

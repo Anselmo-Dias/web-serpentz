@@ -2,7 +2,7 @@ import { networks } from '@/utils/mocks'
 
 export default function Contact() {
   return (
-    <section id="contato" className="relative py-24 px-6 bg-black text-white overflow-hidden">
+    <section id="contact" className="relative py-24 px-6 bg-black text-white overflow-hidden">
       {/* Aura de fundo */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent blur-2xl animate-pulse z-0" />
 

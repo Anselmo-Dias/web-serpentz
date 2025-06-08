@@ -1,28 +1,64 @@
-import { CarouselImages } from "./components/carousel-images";
+import video from "@/assets/banner.mp4";
+import { AboutUs } from "./components/about-us";
+import Teams from "./components/teams";
+import Achievements from "./components/achievements";
+import Calendar from "./components/calendar";
+import Community from "./components/community";
+import Recruitment from "./components/recruitment";
+import Partners from "./components/partners";
+import Contact from "./components/contact";
+import HallOfFame from "./components/hall-of-fame";
+import Feedback from "./components/feedback";
+import { Shop } from "./components/shop";
 
 export function HomePage() {
   return (
-    <div className="grid grid-cols-2 gap-5 bg-gradient-to-r from-[#112c2c] via-[#173937] to-[#1d4442] px-8 max-md:grid-cols-1">
-      <div className="flex h-screen flex-col items-start justify-center text-left">
-        <h2 className="w-full max-w-md text-5xl font-bold text-white max-xs:text-3xl max-md:text-center max-3xl:max-w-3xl max-3xl:text-7xl">
-          Liberte seu espírito competitivo de jogo
-        </h2>
-        <p className="my-5 w-full max-w-md text-gray-400 max-md:text-center max-3xl:max-w-3xl max-3xl:text-xl">
-          Junte-se à nossa equipe de elite de gamers e eleve suas habilidades a
-          novos patamares. Juntos, conquistamos a competição e redefinimos a
-          vitória.
-        </p>
-        <div className="flex w-full items-center justify-start gap-5 max-sm:flex-col max-md:justify-center">
-          <button className="hover:border-transparentg min-h-10 w-full max-w-[200px] rounded-sm bg-gray-100 font-bold text-black transition-all">
-            Juntar
-          </button>
-          <button className="min-h-10 w-full max-w-[200px] rounded-sm border-2 border-gray-100 bg-transparent font-bold text-white transition-all">
-            Saber mais
-          </button>
+    <>
+      <section
+        id="home"
+        className="relative flex h-screen items-center justify-center bg-black text-center"
+      >
+        {/* Fundo com imagem ou vídeo */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover opacity-30"
+          >
+            <source src={video} type="video/mp4" />
+          </video>
         </div>
-      </div>
 
-      <CarouselImages />
-    </div>
+        {/* Conteúdo */}
+        <div className="relative z-10 max-w-2xl px-4">
+          <h1 className="mb-4 text-5xl font-extrabold text-orange-400 drop-shadow md:text-6xl">
+            SERPENTZ GAMING
+          </h1>
+          <p className="mb-6 text-xl text-gray-200 md:text-2xl">
+            "Dominando o jogo com estilo e veneno."
+          </p>
+          <a
+            href="#recrutamento"
+            className="inline-block rounded-full bg-orange-500 px-8 py-4 font-bold text-black transition-all hover:bg-orange-600"
+          >
+            Junte-se ao time
+          </a>
+        </div>
+      </section>
+
+      <AboutUs />
+      <Teams />
+      <HallOfFame />
+      <Achievements />
+      <Calendar />  
+      <Shop />
+      <Partners />
+      <Community />
+      <Recruitment />
+      <Feedback />
+      <Contact />
+    </>
   );
 }

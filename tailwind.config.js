@@ -51,6 +51,11 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+			backgroundImage: {
+        'primary-image':
+          "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/primary-background.png')",
+        // 'secondary-image': "url('./assets/secondary-background.png')",
+      },
 			screens: {
 				'max-xs': { max: '480px' },
         'max-sm': { max: '640px' },

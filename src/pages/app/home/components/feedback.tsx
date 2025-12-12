@@ -1,45 +1,101 @@
+import { Marquee } from '@/components/ui/marquee'
+import { cn } from '@/lib/utils'
 import { feedbacks } from '@/utils/mocks'
 import { motion } from 'framer-motion'
 
 export default function Feedback() {
-  return (
-    <section id="feedbacks" className="py-24 px-6 bg-gradient-to-br from-black via-gray-900 to-black text-white">
-      <div className="max-w-6xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-orange-400 mb-16 tracking-tight"
-        >
-          O que dizem sobre a SERPENTZ
-        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {feedbacks.map((item, index) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-gray-800 hover:border-orange-400 hover:shadow-[0_0_20px_#22c55e77] transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="relative w-14 h-14">
-                  <img
-                    src={item.avatar}
-                    alt={item.name}
-                    className="rounded-full object-cover w-full h-full border-2 border-orange-500"
-                  />
-                  <span className="absolute inset-0 animate-ping rounded-full border-2 border-orange-400 opacity-10"></span>
-                </div>
-                <p className="font-semibold text-orange-300">{item.name}</p>
-              </div>
-              <p className="text-gray-300 italic leading-relaxed">"{item.text}"</p>
-            </motion.div>
-          ))}
+  const reviews = [
+    {
+      name: "Jack",
+      username: "@jack",
+      body: "I've never seen anything like this before. It's amazing. I love it.",
+      img: "https://avatar.vercel.sh/jack",
+    },
+    {
+      name: "Jill",
+      username: "@jill",
+      body: "I don't know what to say. I'm speechless. This is amazing.",
+      img: "https://avatar.vercel.sh/jill",
+    },
+    {
+      name: "John",
+      username: "@john",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+      img: "https://avatar.vercel.sh/john",
+    },
+    {
+      name: "Jane",
+      username: "@jane",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+      img: "https://avatar.vercel.sh/jane",
+    },
+    {
+      name: "Jenny",
+      username: "@jenny",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+      img: "https://avatar.vercel.sh/jenny",
+    },
+    {
+      name: "James",
+      username: "@james",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+      img: "https://avatar.vercel.sh/james",
+    },
+  ]
+
+  const firstRow = reviews.slice(0, reviews.length / 2)
+  const secondRow = reviews.slice(reviews.length / 2)
+
+  const ReviewCard = ({
+    img,
+    name,
+    username,
+    body,
+  }: {
+    img: string
+    name: string
+    username: string
+    body: string
+  }) => {
+    return (
+      <figure
+        className={cn(
+          "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border border-gray-200/[.1] p-4",
+        )}
+      >
+        <div className="flex flex-row items-center gap-2">
+          <img className="rounded-full" width="32" height="32" alt="" src={img} />
+          <div className="flex flex-col">
+            <figcaption className="text-sm font-medium dark:text-white">
+              {name}
+            </figcaption>
+            <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          </div>
         </div>
+        <blockquote className="mt-2 text-sm">{body}</blockquote>
+      </figure>
+    )
+  }
+
+  return (
+    <section id="feedbacks" className="py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col items-center justify-center">
+
+      <h3 className='text-4xl md:text-5xl font-extrabold text-orange-400 mb-10 tracking-wide'>O que dizem sobre a serpentz</h3>
+
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        {/* <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div> */}
       </div>
     </section>
   )

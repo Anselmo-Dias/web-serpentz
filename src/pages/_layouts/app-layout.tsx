@@ -23,7 +23,7 @@ export function AppLayout() {
         style={{
           backgroundColor: scrollPosition > 0 ? "black" : "transparent",
         }}
-        className="fixed z-20 flex w-full items-center justify-between gap-6 px-8 py-4 transition-all duration-500 ease-in-out max-xs:flex-col max-xs:px-1"
+        className="fixed z-20 flex border w-full items-center justify-between gap-6 px-8 py-4 transition-all duration-500 ease-in-out max-xs:flex-col max-xs:px-1"
       >
         <h1 className="text-xl font-black text-white">Serpentz</h1>
 

@@ -28,7 +28,12 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
+    --color-1: oklch(66.2% 0.225 25.9);
+    --color-2: oklch(60.4% 0.26 302);
+    --color-3: oklch(69.6% 0.165 251);
+    --color-4: oklch(80.2% 0.134 225);
+    --color-5: oklch(90.7% 0.231 133);
   }
 
   .dark {
@@ -55,7 +60,20 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
+    --color-1: oklch(66.2% 0.225 25.9);
+    --color-2: oklch(60.4% 0.26 302);
+    --color-3: oklch(69.6% 0.165 251);
+    --color-4: oklch(80.2% 0.134 225);
+    --color-5: oklch(90.7% 0.231 133);
+  }
+
+  .theme {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+    --animate-shiny-text: shiny-text 8s infinite;
+    --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
+    --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
   }
 }
 
@@ -99,5 +117,124 @@
 
   .wrapper {
     @apply px-8 py-24;
+  }
+}
+
+@layer utilities {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes shiny-text {
+
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shiny-width, 6rem)) 0;
+    }
+
+    30%,
+    60% {
+      background-position: calc(100% + var(--shiny-width, 6rem)) 0;
+    }
+  }
+
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100vw - 100%), 0);
+    }
+  }
+
+  @keyframes spin-around {
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-position: 0%;
+    }
+
+    100% {
+      background-position: 200%;
+    }
+  }
+
+  /* utilitários prontos para uso */
+  .marquee {
+    animation: marquee var(--duration) linear infinite;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+    display: block;
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+  }
+
+  .animate-shiny-text {
+    animation: shiny-text 8s infinite;
+  }
+
+  .animate-rainbow {
+    animation: rainbow var(--speed, 2s) infinite linear;;
+  }
+}
+
+@theme inline {
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;
+    }
+  50%, 100% {
+    opacity: 0;
+    }
+  }
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;
+    }
+  50%, 100% {
+    opacity: 0;
+    }
   }
 }
